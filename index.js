@@ -19,7 +19,7 @@ class Airplane {
   land() {
     this.isFlying = false;
   }
-}
+} 
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -41,7 +41,27 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 
+  eat(someFood){
+    if(this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+
+  poop(){
+    if(this.stomach.length >= 10) {
+      this.stomach = [];
+    }
+  }
+
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
 }
 
 /*
@@ -59,7 +79,35 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill(gallons) {
+    if(this.tank < 36) {
+      this.tank += gallons;
+    }
+  }
+
+  drive(distance) {
+    let fuel = distance / this.milesPerGallon;
+    
+    if(this.tank >= fuel) {
+      this.odometer += distance;
+    } else {
+      this.odometer += this.tank * this.milesPerGallon;
+    }
+
+    this.tank = this.tank - fuel;
+    
+    if(this.tank <= 0) {
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    } 
+  }
 }
 
 /*
