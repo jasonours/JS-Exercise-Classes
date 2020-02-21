@@ -152,7 +152,7 @@ class Lambdasian {
 class Instructor extends Lambdasian {
   constructor(lamInst) {
     super(lamInst);
-    this.specialiy = lamInst.specialty;
+    this.specialty = lamInst.specialty;
     this.favLanguage = lamInst.favLanguage;
     this.catchPhrase = lamInst.catchPhrase;
   }
@@ -162,7 +162,7 @@ class Instructor extends Lambdasian {
   }
 
   grade(student, subject) {
-    returns `${this.student} receivesa perfect score on ${this.subject}.`;
+    return `${student.name} receives a perfect score on ${subject}.`;
 
   }
 
@@ -196,11 +196,11 @@ class Student extends Lambdasian {
   }
 
   PRAssignment(subject){
-    return `${this.name} has submitted a PR for ${this.subject}`
+    return `${this.name} has submitted a PR for ${subject}`;
   }
 
   sprintChallenge(subject){
-    return `${this.name} has begun sprint challenge on ${this.subject}`
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 
 }
@@ -226,11 +226,11 @@ class ProjectManager extends Instructor {
   }
 
   standUp(channel) {
-    returns `${this.name} announces to ${this.channel}, @channel standy times!`;
+    return `${this.name} announces to ${channel}, @channel standy times!`;
   }
 
-  debugCode() {
-    returns `${this.name} debugs ${this.name}'s code on ${this.subject}`;
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
 
