@@ -123,6 +123,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(lamPeep) {
+    this.name = lamPeep.name;
+    this.age = lamPeep.age;
+    this.location = lamPeep.location;
+  }
+
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
 
 }
 
@@ -140,7 +149,22 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(lamInst) {
+    super(lamInst);
+    this.specialiy = lamInst.specialty;
+    this.favLanguage = lamInst.favLanguage;
+    this.catchPhrase = lamInst.catchPhrase;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}.`;
+  }
+
+  grade(student, subject) {
+    returns `${this.student} receivesa perfect score on ${this.subject}.`;
+
+  }
 
 }
 
@@ -159,7 +183,25 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(lamStude) {
+    super(lamStude);
+    this.previousBackground = lamStude.previousBackground;
+    this.className = lamStude.className;
+    this.favSubjects = lamStude.favSubjects;
+  }
+
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${this.subject}`
+  }
+
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${this.subject}`
+  }
 
 }
 
@@ -176,8 +218,20 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(teamLead) {
+    super(teamLead);
+    this.gradClassName = teamLead.gradClassName;
+    this.favInstructor = teamLead.favInstructor;
+  }
 
+  standUp(channel) {
+    returns `${this.name} announces to ${this.channel}, @channel standy times!`;
+  }
+
+  debugCode() {
+    returns `${this.name} debugs ${this.name}'s code on ${this.subject}`;
+  }
 }
 
 /*
